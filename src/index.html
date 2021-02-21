@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.common.dev.min.js"
+        integrity="sha512-PkyFg1MEb/EwsFAqzqvZqWdMT4ItV+E1NgOtfBC9X8UecJcO9bwirD+v/9tJwci4wTNHdNYBk4ev6ceb1hy73g=="
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="app" v-if="channel" v-cloak>
+        <header>
+            <a :href="channel.link">
+                <img :src="channel.image.url" alt="Logo" />
+
+            </a>
+            <div class="title ml-2">
+                {{ channel.title }}
+            </div>
+        </header>
+        <main class="container">
+            <div class="posts row">
+                <div class="card col-12 col-md-4 col-lg-3 mt-3" v-for="item in channel.item">
+                    <img src="https://picsum.photos/seed/picsum/200/120" class="card-img-top img-responsive" alt="...">
+                    <div class="card-body">
+                        <a :href="item.link">{{item.title}}</a>
+                        <div class="ellipsis">{{item.description}}</div>
+                    </div>
+                    <div class="card-footer">{{ parseDate(item.pubDate) }}</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>

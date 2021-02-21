@@ -1,0 +1,15 @@
+.ellipsis {
+  height: 150px;
+  line-height: 25px;
+  overflow: hidden;
+}
+
+.ellipsis::after{
+    content: '...';
+    float: right;
+    color:red;
+}
+
+a{
+    text-decoration: none;
+}
